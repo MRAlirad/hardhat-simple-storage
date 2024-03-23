@@ -29,11 +29,23 @@ Hardhat comes built-in with Hardhat Network, a local Ethereum network node desig
 in hardhat.config.js file, in module.exports section, we can add more information about our default network.
 
 default network is:
-``` shell
+
+```shell
 npx hardhat run scripts/deploy.js --network hardhat
 ```
 
 now we can chage the network to rinkbey instead of hardhat, and you should add infomation about you sepolia network like url, accounts, andchainId
-``` shell
+
+```shell
 npx hardhat run scripts/deploy.js --network sepolia
+```
+
+# Hardhat Verify
+
+it can be used through hardhat-verify plugin. [hardhat-verify](https://hardhat.org/hardhat-runner/plugins/nomicfoundation-hardhat-verify).
+
+when we install hardhat-verify plugin , hardhat add a task named 'verify' to our tasks, so we can vefiry contract
+
+```shell
+yarn hardhat verify
 ```
