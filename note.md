@@ -21,3 +21,19 @@ Everythig you can do in hardhat is defined as a task
 Can Package them into plugins that can be imported by another project
 
 Hardhat has a large range of plugins listed, including support for web3.js and ethers.js.
+
+# Hardhat Network
+
+Hardhat comes built-in with Hardhat Network, a local Ethereum network node designed for development. It allows you to deploy your contracts, run your tests and debug your code, all within the confines of your local machine.
+
+in hardhat.config.js file, in module.exports section, we can add more information about our default network.
+
+default network is:
+``` shell
+npx hardhat run scripts/deploy.js --network hardhat
+```
+
+now we can chage the network to rinkbey instead of hardhat, and you should add infomation about you sepolia network like url, accounts, andchainId
+``` shell
+npx hardhat run scripts/deploy.js --network sepolia
+```
