@@ -33,7 +33,7 @@ module.exports = {
 	},
 	solidity: "0.8.24",
 	etherscan: {
-		apiKey: ETHERSCAN_API_KEY,
+		apiKey: ETHERSCAN_API_KEY, // used for verification by hardhat-verify through etherscan
 	},
 	gasReporter: {
 		enabled: true,

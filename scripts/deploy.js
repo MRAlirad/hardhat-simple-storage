@@ -1,5 +1,6 @@
 //* imports
 const {ethers, run, network} = require("hardhat");
+// using "run" you can access your hardhat tasks => returns a promise
 
 //* async main function
 const main = async () => {
@@ -8,17 +9,19 @@ const main = async () => {
 	const simpleStorage = await SimpleStorageFactory.deploy();
 	await simpleStorage.getDeployedCode();
 	console.log(`Deployed contract to: ${simpleStorage.target}`); //? or use "await simpleStorage.getAddress()" instead of "simpleStorage.target"
-	// What happens when we deploy to our hardhat network?
+	// What happens when we deploy to our hardhat network? since hardhat is local to our machine, it does not net to be verified
 	if (network.config.chainId === 11155111 && process.env.ETHERSCAN_API_KEY) {
 		console.log('Verifying contract on Etherscan...');
+		// we wait 6 blocks and then we run our verification process.
 		await simpleStorage.deploymentTransaction().wait(6);
 		await verify(simpleStorage.target, []);
 	}
 
+	// intracting with contract
 	const currentValue = await simpleStorage.retrieve();
 	console.log(`Current value is: ${currentValue}`);
-	
-	//Update the current value
+
+	// Update the current value
 	const transacitonResponse = await simpleStorage.store(42);
 	await transacitonResponse.wait(1);
 	const updatedValue = await simpleStorage.retrieve();
@@ -28,7 +31,7 @@ const main = async () => {
 const verify = async (contractAddress, args) => {
 	console.log('Verifying contract...');
 	try {
-		await run('verify:verify', {
+		await run('verify:verify', { // the second verify is the parameter you pass to the verify task function
 			address: contractAddress,
 			constructorArguments: args,
 		});
@@ -36,7 +39,7 @@ const verify = async (contractAddress, args) => {
 		if (error.message.toLowerCase().includes("already verified"))
 			console.log('Already Verified');
 		else
-			console.log(e);
+			console.log(error);
 	}
 };
 
