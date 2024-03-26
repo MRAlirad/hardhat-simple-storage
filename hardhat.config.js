@@ -1,7 +1,7 @@
 require("@nomicfoundation/hardhat-toolbox");
 require('dotenv').config();
 require('@nomicfoundation/hardhat-verify');
-require('./tasks/block-number');
+require('./tasks/block-number'); // when you require the task in here, it will automatically added to hardhat tasks
 require('hardhat-gas-reporter');
 require('solidity-coverage');
 
@@ -12,6 +12,7 @@ const PRIVATE_KEY = process.env.PRIVATE_KEY || '';
 const ETHERSCAN_API_KEY = process.env.ETHERSCAN_API_KEY || '';
 const COINMARKEYCAP_API_KEY = process.env.COINMARKEYCAP_API_KEY || '';
 
+// you can also add thask in here without put it in separete single file. but it is not a good practice.
 task('accounts', 'Prints the list of accounts', async (taskArgs, hre) => {
 	const accounts = await hre.ethers.getSigners();
 	for (const account of accounts)

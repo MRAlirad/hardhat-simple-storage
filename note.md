@@ -49,3 +49,7 @@ when we install hardhat-verify plugin , hardhat add a task named 'verify' to our
 ```shell
 yarn hardhat verify
 ```
+
+# Custom Hardhat Tasks
+
+with hardaht you can build your own task and add it to hardhat. [hardhat-create-task](https://hardhat.org/hardhat-runner/docs/advanced/create-task)
