@@ -28,8 +28,9 @@ module.exports = {
 			chainId: 11155111,
 		},
 		localhost: {
-			url: "http://127.0.0.1:8545/",
-			chainId: 31337,
+			url: "http://127.0.0.1:8545/", // the given url by inserting 'hardhat yarn node' in terminal
+			chainId: 31337, // the chain id of the local network is the same as hardhat
+			// acounts is not needed because the localhost gives us the accounts
 		}
 	},
 	solidity: "0.8.24",
