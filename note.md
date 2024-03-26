@@ -137,3 +137,7 @@ and test the coverage typing the following command
 ```shell
 yarn hardhat coverage
 ```
+
+# Hardhat Waffle
+
+a plugin to work with waffle testing framework. [waffle](https://getwaffle.io/)
