@@ -73,3 +73,13 @@ yarn hardhat run scripts/deploy.js --network localhost
 ```
 
 you can quickly testing and working with things on the local javascript vm or hardhat network, we are able to see how your smart contarct will intract on the real test net.
+
+# The hardhat Console
+
+Hardhat comes built-in with an interactive JavaScript console. You can use it by running [hardhat-console](https://hardhat.org/hardhat-runner/docs/guides/hardhat-console)
+
+```shell
+yarn hardhat console
+
+yarn hardhat console --network sepolia
+```
