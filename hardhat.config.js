@@ -3,7 +3,7 @@ require('dotenv').config();
 require('@nomicfoundation/hardhat-verify');
 require('./tasks/block-number'); // when you require the task in here, it will automatically added to hardhat tasks
 require('hardhat-gas-reporter'); // require hardhat-gas-reporter plugin
-require('solidity-coverage');
+require('solidity-coverage'); // add solidity-coverage by require it
 
 /** @type import('hardhat/config').HardhatUserConfig */
 
