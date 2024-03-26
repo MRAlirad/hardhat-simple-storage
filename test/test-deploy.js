@@ -4,6 +4,7 @@ const {expect, assert} = require('chai');
 describe("simpleStorage", () => {
     let simpleStorageFactory, simpleStorage;
 
+    // this function calls before each of our test functions
     beforeEach(async () => {
         simpleStorageFactory = await ethers.getContractFactory("SimpleStorage");
         simpleStorage = await simpleStorageFactory.deploy();

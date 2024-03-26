@@ -83,3 +83,23 @@ yarn hardhat console
 
 yarn hardhat console --network sepolia
 ```
+
+# Running Tests
+
+After compiling your contracts, the next step is to write some tests to verify that they work as intended. [testing-contracts](https://hardhat.org/hardhat-runner/docs/guides/test-contracts)
+
+hardhat uses mocha and chai testing libraries underhood. (it is like vitest library in react)
+
+you can run the test by typing the following command. to test all 'it's
+
+``` shell
+yarn hardhat test
+```
+
+if you want to test a specific 'it' you can type the following command
+
+``` shell
+yarn hardhat test --grep [PartOfNameOfTheItTest]
+
+yarn hardhat test --grep store
+```
