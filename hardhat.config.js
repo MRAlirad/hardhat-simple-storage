@@ -2,7 +2,7 @@ require("@nomicfoundation/hardhat-toolbox");
 require('dotenv').config();
 require('@nomicfoundation/hardhat-verify');
 require('./tasks/block-number'); // when you require the task in here, it will automatically added to hardhat tasks
-require('hardhat-gas-reporter');
+require('hardhat-gas-reporter'); // require hardhat-gas-reporter plugin
 require('solidity-coverage');
 
 /** @type import('hardhat/config').HardhatUserConfig */
@@ -37,12 +37,13 @@ module.exports = {
 	etherscan: {
 		apiKey: ETHERSCAN_API_KEY, // used for verification by hardhat-verify through etherscan
 	},
+	//  config the gas reporter
 	gasReporter: {
-		enabled: true,
-		outputFile: 'gas-reporter.txt',
+		enabled: true, // to show the gas reporter in your terminal
+		outputFile: 'gas-reporter.txt', // to output the gas reporter in to a .txt file
 		noColors: true,
 		currency: 'USD',
-		coinmarketcap: COINMARKEYCAP_API_KEY,
-		// token: 'MATIC'
+		coinmarketcap: COINMARKEYCAP_API_KEY, // the API given from https://coinmarketcap.com
+		token: 'MATIC' // to deploy in diffrent network
 	}
 };

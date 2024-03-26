@@ -92,14 +92,30 @@ hardhat uses mocha and chai testing libraries underhood. (it is like vitest libr
 
 you can run the test by typing the following command. to test all 'it's
 
-``` shell
+```shell
 yarn hardhat test
 ```
 
 if you want to test a specific 'it' you can type the following command
 
-``` shell
+```shell
 yarn hardhat test --grep [PartOfNameOfTheItTest]
 
 yarn hardhat test --grep store
 ```
+
+# Hardhat Gas Reporter
+
+we can test to see how much gas each one of our functions actually cost.
+
+one of the extenstion is [hardhat-gas-reporter](https://www.npmjs.com/package/hardhat-gas-reporter)
+
+you can install it by typing the following command
+
+```shell
+yarn add hardhat-gas-reporter --dev
+```
+
+and in hardhat-config.js file you can config it.
+
+when you test the contract, it will show you how much gas each one of the function cost. in your terminal
