@@ -145,8 +145,22 @@ module.exports = {
 
 ```js
 const { run } = require('hardhat');
-await run('verify:verify', { // the second verify is the parameter you pass to the verify task function
+await run('verify:verify', {
+	// the second verify is the parameter you pass to the verify task function
 	address: CONTRACT_ADDRESS,
 	constructorArguments: CONSTRUCTOR_ARGUMENTS,
 }); // calls the verify task and returns a promise
+```
+
+## Interacting with Contracts in Hardhat
+
+we can intract with our contract after contract factory and deploy it
+
+```js
+const SimpleStorageFactory = await ethers.getContractFactory('SimpleStorage');
+const simpleStorage = await SimpleStorageFactory.deploy();
+
+// intract with the contract
+const currentValue = await simpleStorage.retrieve();
+const transacitonResponse = await simpleStorage.store(42);
 ```
