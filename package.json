@@ -1,16 +1,19 @@
 {
-  "name": "hardhat-simple-storage",
-  "version": "1.0.0",
-  "description": "[`Hardhat`](https://hardhat.org/) is a development environment for Ethereum software",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "devDependencies": {
-    "@nomicfoundation/hardhat-toolbox": "^5.0.0",
-    "hardhat": "^2.22.13"
-  }
+	"name": "hardhat-simple-storage",
+	"version": "1.0.0",
+	"description": "[`Hardhat`](https://hardhat.org/) is a development environment for Ethereum software",
+	"main": "index.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"devDependencies": {
+		"@nomicfoundation/hardhat-toolbox": "^5.0.0",
+		"hardhat": "^2.22.13"
+	},
+	"dependencies": {
+		"dotenv": "^16.4.5"
+	}
 }
