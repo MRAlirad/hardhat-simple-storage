@@ -110,3 +110,43 @@ npx hardhat run [pathOfTheJSFile] --network sepolia
 
 npx hardhat run scripts/deploy.js --network sepolia
 ```
+
+## Programmatic Verification
+
+the is a plugin in hardhat called [`hardhat-verify`](https://hardhat.org/hardhat-runner/plugins/nomicfoundation-hardhat-verify) that helps you verify your contract programatically.
+
+command to install the plugin
+
+```bash
+npm install --save-dev @nomicfoundation/hardhat-verify
+```
+
+then import the plugin in your `hatdhat.config.js` file
+
+```js
+require('@nomicfoundation/hardhat-verify');
+```
+
+when we import a plugin in `hardhat.config.js`, if the plugin has some tasks, they will be added automatically to hardhat tasks.
+
+`hardhat-verify` plugin adds a task called `verify` to hardhat tasks.
+
+since the plugin uses `etherscan` to verify our contract, so we need ad API key from etherscan, and add it to `hardhat.config.js`
+
+```js
+module.exports = {
+	etherscan: {
+		apiKey: ETHERSCAN_API_KEY,
+	},
+};
+```
+
+> we can run any tasks of hardhat using `run` package
+
+```js
+const { run } = require('hardhat');
+await run('verify:verify', { // the second verify is the parameter you pass to the verify task function
+	address: CONTRACT_ADDRESS,
+	constructorArguments: CONSTRUCTOR_ARGUMENTS,
+}); // calls the verify task and returns a promise
+```
