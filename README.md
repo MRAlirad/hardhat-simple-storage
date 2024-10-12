@@ -33,3 +33,35 @@ to access to hardhat [`global options or availabel tasks`](https://hardhat.org/h
 ```bash
 npx hardhat
 ```
+
+## Deploying SimpleStorage from Hardhat
+
+to compile our contract we run the command:
+
+```bash
+npx hardhat compile
+```
+
+> rememeber to match the version of your contract with the version in `hardhat.config.js` file
+
+Some contracts need to be linked with libraries before they are deployed. You can pass the addresses of their libraries to the [`getContractFactory`](https://hardhat.org/hardhat-runner/plugins/nomicfoundation-hardhat-ethers#library-linking) function with an object like this
+
+```js
+const { ethers } = require('hardhat');
+
+const SimpleStorageFactory = await ethers.getContractFactory('SimpleStorage');
+```
+
+and then you can use the deploy method to deploy it.
+
+```js
+const SimpleStorageFactory = await ethers.getContractFactory('SimpleStorage');
+const simpleStorage = await SimpleStorageFactory.deploy();
+```
+
+to get the address of the deployed contract there are two ways
+
+```js
+await simpleStorage.getAddress();
+simpleStorage.target;
+```
