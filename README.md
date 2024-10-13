@@ -207,3 +207,47 @@ npx hardhat block-number
 
 npx hardhat block-nmber --network sepolia
 ```
+
+## Hardhat Localhost Node
+
+every time we run the script, the hardhat network is deleted, you can't intract with smart contract
+
+but there is a way for us to run a [hardhard network](https://hardhat.org/hardhat-network/docs/overview).
+
+by typing this script on the terminal, it will spin off the node on the local network exactly the same as gnachat but in our terminal, and it will start a HTTP WebSocket JSON-RPC at a url
+
+```bash
+yarn hardhat node
+```
+
+and then in another terminal, we can run the script to connect to the local host and know about the smart conract
+
+```bash
+yarn hardhat run scripts/deploy.js --network localhost
+```
+
+you can quickly testing and working with things on the local javascript vm or hardhat network, we are able to see how your smart contarct will intract on the real test net.
+
+to config your `hardhat.config.js`:
+
+```js
+module.export = {
+	networks: {
+		localhost: {
+			url: 'http://127.0.0.1:8545/', // the given url by inserting 'hardhat yarn node' in terminal
+			chainId: 31337, // the chain id of the local network is the same as hardhat
+			// acounts is not needed because the localhost gives us the accounts
+		},
+	},
+};
+```
+
+## Hardhat Localhost Node
+
+Hardhat comes built-in with an interactive JavaScript console. You can use it by running [`hardhat console`](https://hardhat.org/hardhat-runner/docs/guides/hardhat-console)
+
+```bash
+yarn hardhat console
+
+yarn hardhat console --network sepolia
+```
