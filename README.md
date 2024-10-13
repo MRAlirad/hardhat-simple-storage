@@ -251,3 +251,32 @@ yarn hardhat console
 
 yarn hardhat console --network sepolia
 ```
+
+## Running Tests
+
+After compiling your contracts, the next step is to write some tests to verify that they work as intended.
+
+hardhat uses mocha and chai testing libraries underhood. (it is like vitest library in react)
+
+you need to install some packages
+
+[`test contracts`](https://hardhat.org/hardhat-runner/plugins/nomicfoundation-hardhat-chai-matchers)
+
+```bash
+npm install --save-dev @nomicfoundation/hardhat-chai-matchers
+npm install --save-dev @nomicfoundation/hardhat-chai-matchers chai@4 @nomicfoundation/hardhat-ethers ethers
+```
+
+you can run the test by typing the following command. to test all 'it's
+
+```bash
+yarn hardhat test
+```
+
+if you want to test a specific 'it' you can type the following command
+
+```bash
+yarn hardhat test --grep [PartOfNameOfTheItTest]
+
+yarn hardhat test --grep store
+```
