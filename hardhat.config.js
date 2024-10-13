@@ -1,6 +1,8 @@
 require('@nomicfoundation/hardhat-toolbox');
 require('dotenv').config();
 require('@nomicfoundation/hardhat-verify');
+require('./tasks/block-number');
+require('./tasks/accounts');
 
 /** @type import('hardhat/config').HardhatUserConfig */
 

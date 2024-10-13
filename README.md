@@ -164,3 +164,46 @@ const simpleStorage = await SimpleStorageFactory.deploy();
 const currentValue = await simpleStorage.retrieve();
 const transacitonResponse = await simpleStorage.store(42);
 ```
+
+## Custom Hardhat Tasks
+
+hardhat comes with some tasks, and they can be extended by us writing plugins.
+
+there is a method called [`task`](https://hardhat.org/hardhat-runner/docs/advanced/create-task) that is imported from `@nomicfoundation/hardhat-toolbox`
+
+```js
+require('@nomicfoundation/hardhat-toolbox');
+
+// the first argument is the name of the task and the second one is the description of it.
+task('block-number', 'Prints the current block number').setAction(async (taskArgs, hre) => {
+	const blockNumber = await hre.ethers.provider.getBlockNumber();
+	console.log(`Current block number: ${blockNumber}`);
+});
+```
+
+> `setAction` method difines what the task should actually do.
+
+> `hre` => an object containing all the functionality that Hardhat exposes when running a task, test or script. In reality, Hardhat is the HRE. [`hardhat runtime environment`](https://hardhat.org/hardhat-runner/docs/advanced/hardhat-runtime-environment)
+
+when you declare your task you need to add it to `hardhat.config.js` file.
+all you need to do is to import it to`hardhat.config.js` file. it will it will automatically added to hardhat tasks.
+
+```js
+require('pathOfTheTaskFile');
+
+//example
+
+require('./tasks/block-number');
+```
+
+```bash
+npx hardhat nameOfTheTask
+
+//example
+
+npx hardhat block-number
+
+//or (if you want to change the network)
+
+npx hardhat block-nmber --network sepolia
+```
