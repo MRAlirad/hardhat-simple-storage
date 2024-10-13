@@ -311,3 +311,21 @@ module.export = {
 ```
 
 when you test the contract, it will show you how much gas each one of the function cost. in your terminal
+
+# Solidity Test Coverage
+
+To make sure every line of our .sol file is tested, we can use solidity test coverage. one of the tools for test coverage is [solidity-coverage](https://www.npmjs.com/package/solidity-coverage).
+
+we can install it by typing the following command
+
+```bash
+npm i solidity-coverage --dev
+```
+
+in hardhat-config.js file you can config it.
+
+and test the coverage typing the following command
+
+```bash
+npx hardhat coverage
+```

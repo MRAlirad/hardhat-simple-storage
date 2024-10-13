@@ -4,6 +4,7 @@ require('@nomicfoundation/hardhat-verify');
 require('./tasks/block-number');
 require('./tasks/accounts');
 require('hardhat-gas-reporter');
+require('solidity-coverage');
 
 /** @type import('hardhat/config').HardhatUserConfig */
 

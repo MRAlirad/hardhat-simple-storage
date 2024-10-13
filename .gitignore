@@ -13,4 +13,6 @@ node_modules
 /coverage
 /coverage.json
 
+coverage
+coverage.json
 gas-reporter.txt
